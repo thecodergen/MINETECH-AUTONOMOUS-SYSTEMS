@@ -17,7 +17,7 @@ interface HeroSectionProps {
 
 export default function HeroSection({ onOpenDemo }: HeroSectionProps) {
   return (
-    <section id="experience" className="relative min-h-[calc(100vh-110px)] px-5 pb-16 pt-8 sm:px-8 lg:px-10">
+    <section id="experience" className="relative scroll-mt-24 min-h-[calc(100vh-110px)] px-5 pb-16 pt-8 sm:px-8 lg:px-10">
       {/* 3D Animated Ambient Glows */}
       <div className="pointer-events-none absolute -left-20 top-20 h-96 w-96 rounded-full bg-[radial-gradient(circle,_rgba(255,179,92,0.15),transparent_70%)] blur-3xl" />
       <div className="pointer-events-none absolute -right-20 top-40 h-96 w-96 rounded-full bg-[radial-gradient(circle,_rgba(108,225,255,0.12),transparent_70%)] blur-3xl" />

@@ -554,7 +554,7 @@ export default function Interactive3DExplorer() {
   const currentOriginY = isZoomedIn ? (currentHotspot?.y ?? 50) : 50;
 
   return (
-    <section id="interactive-3d" className="relative px-4 py-24 sm:px-6 lg:px-8 select-none">
+    <section id="interactive-3d" className="relative scroll-mt-24 px-4 py-24 sm:px-6 lg:px-8 select-none">
       <div className="mx-auto max-w-7xl">
         
         {/* Top Master Header with Environment Mode Toggle */}

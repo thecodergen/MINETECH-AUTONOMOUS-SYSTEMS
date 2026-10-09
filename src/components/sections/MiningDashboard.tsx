@@ -42,7 +42,7 @@ export default function MiningDashboard() {
   }, []);
 
   return (
-    <section id="dashboard" className="relative px-5 py-24 sm:px-8 lg:px-10">
+    <section id="dashboard" className="relative scroll-mt-24 px-5 py-24 sm:px-8 lg:px-10">
       <div className="mx-auto max-w-7xl rounded-[36px] border border-white/10 bg-gradient-to-b from-[#091018] to-[#04070a] p-6 shadow-[0_30px_90px_rgba(0,0,0,0.5)] sm:p-8 lg:p-10">
         <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>

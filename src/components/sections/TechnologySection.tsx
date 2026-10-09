@@ -74,7 +74,7 @@ const technologies = [
 
 export default function TechnologySection() {
   return (
-    <section id="technology" className="relative px-5 py-24 sm:px-8 lg:px-10">
+    <section id="technology" className="relative scroll-mt-24 px-5 py-24 sm:px-8 lg:px-10">
       <div className="mx-auto max-w-7xl">
         <div className="mb-12 max-w-3xl">
           <div className="inline-flex items-center gap-2 rounded-full border border-[#6ce1ff]/30 bg-[#6ce1ff]/10 px-4 py-1.5 text-[10px] font-medium uppercase tracking-[0.28em] text-[#6ce1ff]">

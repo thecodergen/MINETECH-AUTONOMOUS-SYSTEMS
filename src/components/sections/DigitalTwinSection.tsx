@@ -9,7 +9,7 @@ export default function DigitalTwinSection() {
   const [digital, setDigital] = useState(true);
 
   return (
-    <section id="digital-twin" className="relative px-5 py-24 sm:px-8 lg:px-10">
+    <section id="digital-twin" className="relative scroll-mt-24 px-5 py-24 sm:px-8 lg:px-10">
       <div className="mx-auto max-w-7xl">
         <div className="mb-12 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>

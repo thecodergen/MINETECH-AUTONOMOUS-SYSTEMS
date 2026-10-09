@@ -10,7 +10,7 @@ interface FinalCTAProps {
 
 export default function FinalCTA({ onOpenDemo }: FinalCTAProps) {
   return (
-    <section id="contact" className="relative px-5 pb-24 pt-12 sm:px-8 lg:px-10">
+    <section id="contact" className="relative scroll-mt-24 px-5 pb-24 pt-12 sm:px-8 lg:px-10">
       <div className="mx-auto max-w-7xl">
         <div className="group relative overflow-hidden rounded-[36px] border border-white/15 bg-[#060a0f] p-8 shadow-[0_35px_100px_rgba(0,0,0,0.8)] sm:p-12 lg:p-16">
           {/* Photorealistic Background with Heavy Cinematic Gradient */}
