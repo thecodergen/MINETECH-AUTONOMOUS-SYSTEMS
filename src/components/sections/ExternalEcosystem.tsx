@@ -75,17 +75,17 @@ const socialLinks = [
 
 export default function ExternalEcosystem() {
   return (
-    <section id="ecosystem" className="relative scroll-mt-24 px-5 py-24 sm:px-8 lg:px-10">
+    <section id="ecosystem" className="relative scroll-mt-20 px-4 pt-4 pb-14 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
-        <div className="mb-12 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+        <div className="mb-5 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#6ce1ff]/30 bg-[#6ce1ff]/10 px-4 py-1.5 text-[10px] font-medium uppercase tracking-[0.28em] text-[#6ce1ff]">
-              <Globe size={13} /> EXTERNAL INDUSTRY ECOSYSTEM
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#6ce1ff]/30 bg-[#6ce1ff]/10 px-3 py-0.5 text-[9px] font-medium uppercase tracking-[0.28em] text-[#6ce1ff]">
+              <Globe size={11} /> EXTERNAL INDUSTRY ECOSYSTEM
             </div>
-            <h2 className="mt-3 text-3xl font-black tracking-[-0.06em] text-white sm:text-5xl">
+            <h2 className="mt-1 text-2xl font-black tracking-tight text-white sm:text-4xl">
               Connected Mining Network & Portals
             </h2>
-            <p className="mt-3 max-w-2xl text-base text-slate-300">
+            <p className="mt-1.5 max-w-2xl text-xs text-slate-300">
               Explore live global commodity exchanges, autonomous fleet documentation, international safety standards, and partner websites.
             </p>
           </div>

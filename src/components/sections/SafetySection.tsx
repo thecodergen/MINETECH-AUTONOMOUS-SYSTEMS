@@ -13,24 +13,24 @@ const indicators = [
 
 export default function SafetySection() {
   return (
-    <section id="safety" className="relative scroll-mt-24 px-5 py-24 sm:px-8 lg:px-10">
+    <section id="safety" className="relative scroll-mt-20 px-4 pt-4 pb-14 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
-        <div className="mb-12 max-w-3xl">
-          <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-1.5 text-[10px] font-medium uppercase tracking-[0.28em] text-emerald-400">
-            <ShieldCheck size={13} /> ZERO-HARM PLATFORM
+        <div className="mb-5 max-w-3xl">
+          <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-0.5 text-[9px] font-medium uppercase tracking-[0.28em] text-emerald-400">
+            <ShieldCheck size={11} /> ZERO-HARM PLATFORM
           </div>
-          <h2 className="mt-3 text-3xl font-black tracking-[-0.06em] text-white sm:text-5xl">
+          <h2 className="mt-1 text-2xl font-black tracking-tight text-white sm:text-4xl">
             Subterranean Safety & Environmental Guardians
           </h2>
-          <p className="mt-3 text-base text-slate-300">
+          <p className="mt-1.5 text-xs text-slate-300">
             Automated personnel detection halos and multi-gas atmospheric monitors safeguard every level from surface portal to deep stopes.
           </p>
         </div>
 
-        <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
+        <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
           {/* Photorealistic Subterranean Safety Visual */}
-          <div className="group relative overflow-hidden rounded-[32px] border border-white/15 bg-[#05090e] p-4 shadow-[0_30px_90px_rgba(0,0,0,0.6)]">
-            <div className="relative h-[480px] w-full overflow-hidden rounded-[24px]">
+          <div className="group relative overflow-hidden rounded-[28px] border border-white/15 bg-[#05090e] p-3 shadow-[0_25px_80px_rgba(0,0,0,0.6)]">
+            <div className="relative h-[400px] lg:h-[440px] w-full overflow-hidden rounded-[22px]">
               <Image
                 src="/images/underground_tunnel.jpg"
                 alt="Underground Mine Safety Tunnel"

@@ -74,16 +74,16 @@ const technologies = [
 
 export default function TechnologySection() {
   return (
-    <section id="technology" className="relative scroll-mt-24 px-5 py-24 sm:px-8 lg:px-10">
+    <section id="technology" className="relative scroll-mt-20 px-4 pt-4 pb-14 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
-        <div className="mb-12 max-w-3xl">
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#6ce1ff]/30 bg-[#6ce1ff]/10 px-4 py-1.5 text-[10px] font-medium uppercase tracking-[0.28em] text-[#6ce1ff]">
-            <Zap size={13} /> TECHNOLOGY STACK
+        <div className="mb-5 max-w-3xl">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#6ce1ff]/30 bg-[#6ce1ff]/10 px-3 py-0.5 text-[9px] font-medium uppercase tracking-[0.28em] text-[#6ce1ff]">
+            <Zap size={11} /> TECHNOLOGY STACK
           </div>
-          <h2 className="mt-3 text-3xl font-black tracking-[-0.06em] text-white sm:text-5xl">
+          <h2 className="mt-1 text-2xl font-black tracking-tight text-white sm:text-4xl">
             Engineered for Extreme Geology
           </h2>
-          <p className="mt-3 text-base text-slate-300">
+          <p className="mt-1.5 text-xs text-slate-300">
             Eight interconnected technology pillars powering high-yield, zero-harm autonomous mining operations.
           </p>
         </div>

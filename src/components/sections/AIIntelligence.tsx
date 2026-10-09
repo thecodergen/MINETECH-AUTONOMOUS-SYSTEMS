@@ -29,24 +29,24 @@ const capabilities = [
 
 export default function AIIntelligence() {
   return (
-    <section id="ai" className="relative scroll-mt-24 px-5 py-24 sm:px-8 lg:px-10">
+    <section id="ai" className="relative scroll-mt-20 px-4 pt-4 pb-14 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
-        <div className="mb-12 max-w-3xl">
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#6ce1ff]/30 bg-[#6ce1ff]/10 px-4 py-1.5 text-[10px] font-medium uppercase tracking-[0.28em] text-[#6ce1ff]">
-            <Network size={13} /> NEURAL INFRASTRUCTURE
+        <div className="mb-5 max-w-3xl">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#6ce1ff]/30 bg-[#6ce1ff]/10 px-3 py-0.5 text-[9px] font-medium uppercase tracking-[0.28em] text-[#6ce1ff]">
+            <Network size={11} /> NEURAL INFRASTRUCTURE
           </div>
-          <h2 className="mt-3 text-3xl font-black tracking-[-0.06em] text-white sm:text-5xl">
+          <h2 className="mt-1 text-2xl font-black tracking-tight text-white sm:text-4xl">
             Intelligence Orchestrating Every Tonne
           </h2>
-          <p className="mt-3 text-base text-slate-300">
+          <p className="mt-1.5 text-xs text-slate-300">
             A unified neural telemetry cloud continuously links every excavator bucket, autonomous hauler, and processing plant.
           </p>
         </div>
 
-        <div className="grid gap-8 lg:grid-cols-[1.35fr_0.85fr]">
+        <div className="grid gap-6 lg:grid-cols-[1.35fr_0.85fr]">
           {/* Photorealistic AI Visualization Centerpiece */}
-          <div className="group relative overflow-hidden rounded-[32px] border border-white/15 bg-[#080d14] p-4 shadow-[0_30px_90px_rgba(0,0,0,0.6)]">
-            <div className="relative h-[480px] w-full overflow-hidden rounded-[24px]">
+          <div className="group relative overflow-hidden rounded-[28px] border border-white/15 bg-[#080d14] p-3 shadow-[0_25px_80px_rgba(0,0,0,0.6)]">
+            <div className="relative h-[400px] lg:h-[440px] w-full overflow-hidden rounded-[22px]">
               <Image
                 src="/images/ai_intelligence.jpg"
                 alt="AI Mining Network Visualization"

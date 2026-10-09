@@ -52,25 +52,25 @@ export default function MiningJourney() {
   const current = journeyStages[activeStage];
 
   return (
-    <section id="journey" className="relative scroll-mt-24 px-5 py-24 sm:px-8 lg:px-10">
+    <section id="journey" className="relative scroll-mt-20 px-4 pt-4 pb-14 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
-        <div className="mb-12 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+        <div className="mb-5 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#ffb35c]">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#ffb35c]">
               01 / OPERATIONAL ARCHITECTURE
             </p>
-            <h2 className="mt-3 text-3xl font-black tracking-[-0.05em] text-white sm:text-5xl">
+            <h2 className="mt-1 text-2xl font-black tracking-tight text-white sm:text-4xl">
               The Mine in Full Motion
             </h2>
           </div>
-          <p className="max-w-md text-sm text-slate-300">
+          <p className="max-w-md text-xs text-slate-300">
             From the open-pit rim to deep subterranean drifts, every extraction tier is connected to a singular AI operating model.
           </p>
         </div>
 
-        <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
+        <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
           {/* Photorealistic Stage Showcase */}
-          <div className="group relative overflow-hidden rounded-[32px] border border-white/15 bg-[#060a0f] p-4 shadow-[0_25px_80px_rgba(0,0,0,0.5)]">
+          <div className="group relative overflow-hidden rounded-[28px] border border-white/15 bg-[#060a0f] p-3 shadow-[0_25px_80px_rgba(0,0,0,0.5)]">
             <AnimatePresence mode="wait">
               <motion.div
                 key={current.number}
@@ -78,7 +78,7 @@ export default function MiningJourney() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.96 }}
                 transition={{ duration: 0.5 }}
-                className="relative h-[480px] w-full overflow-hidden rounded-[24px]"
+                className="relative h-[400px] lg:h-[440px] w-full overflow-hidden rounded-[22px]"
               >
                 <Image
                   src={current.image}

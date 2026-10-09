@@ -9,25 +9,25 @@ export default function DigitalTwinSection() {
   const [digital, setDigital] = useState(true);
 
   return (
-    <section id="digital-twin" className="relative scroll-mt-24 px-5 py-24 sm:px-8 lg:px-10">
+    <section id="digital-twin" className="relative scroll-mt-20 px-4 pt-4 pb-14 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
-        <div className="mb-12 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+        <div className="mb-4 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#6ce1ff]/30 bg-[#6ce1ff]/10 px-4 py-1.5 text-[10px] font-medium uppercase tracking-[0.28em] text-[#6ce1ff]">
-              <Layers size={13} /> GEOSPATIAL TELEMETRY
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#6ce1ff]/30 bg-[#6ce1ff]/10 px-3 py-0.5 text-[9px] font-medium uppercase tracking-[0.28em] text-[#6ce1ff]">
+              <Layers size={11} /> GEOSPATIAL TELEMETRY
             </div>
-            <h2 className="mt-3 text-3xl font-black tracking-[-0.06em] text-white sm:text-5xl">
+            <h2 className="mt-1 text-2xl font-black tracking-tight text-white sm:text-4xl">
               One Mine. One Living Digital Twin.
             </h2>
           </div>
 
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-[#0a1017] p-1.5 shadow-lg">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-[#0a1017] p-1 shadow-lg">
             <button
               type="button"
               onClick={() => setDigital(false)}
-              className={`rounded-full px-5 py-2.5 text-[10px] font-bold uppercase tracking-[0.22em] transition-all ${
+              className={`rounded-full px-4 py-2 text-[10px] font-bold uppercase tracking-[0.2em] transition-all ${
                 !digital
-                  ? "bg-[#ffb35c] text-black shadow-[0_0_20px_rgba(255,179,92,0.4)]"
+                  ? "bg-[#ffb35c] text-black shadow-[0_0_20px_rgba(255,179,92,0.4)] font-extrabold"
                   : "text-slate-400 hover:text-white"
               }`}
             >
@@ -36,9 +36,9 @@ export default function DigitalTwinSection() {
             <button
               type="button"
               onClick={() => setDigital(true)}
-              className={`rounded-full px-5 py-2.5 text-[10px] font-bold uppercase tracking-[0.22em] transition-all ${
+              className={`rounded-full px-4 py-2 text-[10px] font-bold uppercase tracking-[0.2em] transition-all ${
                 digital
-                  ? "bg-[#6ce1ff] text-black shadow-[0_0_20px_rgba(108,225,255,0.4)]"
+                  ? "bg-[#6ce1ff] text-black shadow-[0_0_20px_rgba(108,225,255,0.4)] font-extrabold"
                   : "text-slate-400 hover:text-white"
               }`}
             >
@@ -48,8 +48,8 @@ export default function DigitalTwinSection() {
         </div>
 
         {/* Dynamic Digital Twin Split Comparison */}
-        <div className="group relative overflow-hidden rounded-[32px] border border-white/15 bg-[#050d12] p-4 shadow-[0_30px_100px_rgba(0,0,0,0.7)]">
-          <div className="relative h-[520px] w-full overflow-hidden rounded-[26px]">
+        <div className="group relative overflow-hidden rounded-[28px] border border-white/15 bg-[#050d12] p-3 shadow-[0_25px_80px_rgba(0,0,0,0.7)]">
+          <div className="relative h-[440px] lg:h-[480px] w-full overflow-hidden rounded-[22px]">
             <AnimatePresence mode="wait">
               <motion.div
                 key={digital ? "digital" : "physical"}
