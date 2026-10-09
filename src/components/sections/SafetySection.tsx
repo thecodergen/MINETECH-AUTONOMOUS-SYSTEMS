@@ -13,7 +13,7 @@ const indicators = [
 
 export default function SafetySection() {
   return (
-    <section id="safety" className="relative scroll-mt-20 px-4 pt-4 pb-14 sm:px-6 lg:px-8">
+    <section id="safety" className="relative min-h-[calc(100vh-80px)] flex flex-col justify-center scroll-mt-20 px-4 py-6 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <div className="mb-5 max-w-3xl">
           <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-0.5 text-[9px] font-medium uppercase tracking-[0.28em] text-emerald-400">

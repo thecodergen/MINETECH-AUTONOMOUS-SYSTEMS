@@ -52,7 +52,7 @@ export default function MiningJourney() {
   const current = journeyStages[activeStage];
 
   return (
-    <section id="journey" className="relative scroll-mt-20 px-4 pt-4 pb-14 sm:px-6 lg:px-8">
+    <section id="journey" className="relative min-h-[calc(100vh-80px)] flex flex-col justify-center scroll-mt-20 px-4 py-6 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <div className="mb-5 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
           <div>

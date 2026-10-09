@@ -20,11 +20,33 @@ const navItems = [
 export default function Navbar({ onOpenDemo }: NavbarProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    if (href.startsWith("#")) {
+      const targetId = href.substring(1);
+      const elem = document.getElementById(targetId);
+      if (elem) {
+        const navHeight = 72;
+        const elemRect = elem.getBoundingClientRect();
+        const elemTop = elemRect.top + window.pageYOffset;
+        window.scrollTo({
+          top: elemTop - navHeight,
+          behavior: "smooth",
+        });
+        window.history.pushState(null, "", href);
+      }
+    }
+  };
+
   return (
     <header className="sticky top-0 z-40 w-full border-b border-white/10 bg-[#05070a]/90 backdrop-blur-2xl">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Brand Logo - Fixed No Shrink */}
-        <a href="#experience" className="flex shrink-0 items-center gap-3 pr-4 group">
+        <a 
+          href="#experience" 
+          onClick={(e) => handleNavClick(e, "#experience")}
+          className="flex shrink-0 items-center gap-3 pr-4 group"
+        >
           <div className="flex h-9 w-9 items-center justify-center rounded-xl border border-[#ffb35c]/60 bg-[#ffb35c]/15 text-xs font-black text-[#ffb35c] shadow-[0_0_15px_rgba(255,179,92,0.3)] transition group-hover:scale-105">
             M
           </div>
@@ -40,6 +62,7 @@ export default function Navbar({ onOpenDemo }: NavbarProps) {
             <a
               key={item.name}
               href={item.href}
+              onClick={(e) => handleNavClick(e, item.href)}
               className="whitespace-nowrap rounded-lg px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-300 transition-colors hover:bg-white/5 hover:text-[#ffb35c]"
             >
               {item.name}
@@ -88,7 +111,10 @@ export default function Navbar({ onOpenDemo }: NavbarProps) {
               <a
                 key={item.name}
                 href={item.href}
-                onClick={() => setMobileOpen(false)}
+                onClick={(e) => {
+                  setMobileOpen(false);
+                  handleNavClick(e, item.href);
+                }}
                 className="rounded-lg px-3 py-2 hover:bg-white/5 hover:text-[#ffb35c]"
               >
                 {item.name}

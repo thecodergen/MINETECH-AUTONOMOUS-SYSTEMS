@@ -128,7 +128,7 @@ export default function FleetDispatchSimulator() {
   };
 
   return (
-    <section id="fleet-dispatch" className="relative scroll-mt-20 px-4 pt-4 pb-16 sm:px-6 lg:px-8">
+    <section id="fleet-dispatch" className="relative min-h-[calc(100vh-80px)] flex flex-col justify-center scroll-mt-20 px-4 py-6 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         
         {/* Section Title */}

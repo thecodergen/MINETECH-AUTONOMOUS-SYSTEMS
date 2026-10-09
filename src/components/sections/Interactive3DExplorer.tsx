@@ -554,7 +554,7 @@ export default function Interactive3DExplorer() {
   const currentOriginY = isZoomedIn ? (currentHotspot?.y ?? 50) : 50;
 
   return (
-    <section id="interactive-3d" className="relative scroll-mt-20 px-4 pt-4 pb-16 sm:px-6 lg:px-8 select-none">
+    <section id="interactive-3d" className="relative min-h-[calc(100vh-80px)] flex flex-col justify-center scroll-mt-20 px-4 py-6 sm:px-6 lg:px-8 select-none">
       <div className="mx-auto max-w-7xl">
         
         {/* Top Master Header with Vehicle Selector & View Toggle in one compact bar */}
