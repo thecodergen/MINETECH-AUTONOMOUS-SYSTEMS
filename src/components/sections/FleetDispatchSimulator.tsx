@@ -128,11 +128,11 @@ export default function FleetDispatchSimulator() {
   };
 
   return (
-    <section id="fleet-dispatch" className="relative scroll-mt-24 px-4 py-24 sm:px-6 lg:px-8">
+    <section id="fleet-dispatch" className="relative scroll-mt-20 px-4 pt-4 pb-16 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         
         {/* Section Title */}
-        <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+        <div className="mb-6 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-[#6ce1ff]/30 bg-[#6ce1ff]/10 px-4 py-1.5 text-[10px] font-bold uppercase tracking-[0.28em] text-[#6ce1ff]">
               <Navigation size={13} className="animate-spin" /> AUTONOMOUS DISPATCH COMMAND

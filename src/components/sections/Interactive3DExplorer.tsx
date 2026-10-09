@@ -554,84 +554,85 @@ export default function Interactive3DExplorer() {
   const currentOriginY = isZoomedIn ? (currentHotspot?.y ?? 50) : 50;
 
   return (
-    <section id="interactive-3d" className="relative scroll-mt-24 px-4 py-24 sm:px-6 lg:px-8 select-none">
+    <section id="interactive-3d" className="relative scroll-mt-20 px-4 pt-4 pb-16 sm:px-6 lg:px-8 select-none">
       <div className="mx-auto max-w-7xl">
         
-        {/* Top Master Header with Environment Mode Toggle */}
-        <div className="mb-8 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+        {/* Top Master Header with Vehicle Selector & View Toggle in one compact bar */}
+        <div className="mb-4 flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#ffb35c]/30 bg-[#ffb35c]/10 px-4 py-1.5 text-[10px] font-bold uppercase tracking-[0.28em] text-[#ffb35c]">
-              <Zap size={13} className="text-[#ffb35c] animate-pulse" /> UNIFIED FLEET INTELLIGENCE & 3D CAD
+            <div className="flex items-center gap-2">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-[#ffb35c]/30 bg-[#ffb35c]/10 px-3 py-0.5 text-[9px] font-bold uppercase tracking-[0.24em] text-[#ffb35c]">
+                <Zap size={11} className="text-[#ffb35c] animate-pulse" /> 3D CAD STUDIO
+              </span>
+              <span className="text-[10px] font-mono text-slate-400">· 360° FLEET TELEMETRY</span>
             </div>
-            <h2 className="mt-3 text-3xl font-black tracking-[-0.06em] text-white sm:text-5xl">
+            <h2 className="mt-1 text-2xl font-black tracking-tight text-white sm:text-3xl">
               {currentVehicle.name}
             </h2>
-            <p className="mt-2 max-w-2xl text-sm text-slate-400">
-              {currentVehicle.description}
-            </p>
           </div>
 
-          {/* Master View Mode Toggle (3D CAD Studio vs Live Mine Deployment) */}
-          <div className="relative z-30 inline-flex items-center gap-2 rounded-2xl border border-white/15 bg-[#060a0f] p-1.5 shadow-2xl">
-            <button
-              type="button"
-              onClick={() => {
-                setEnvMode("cad-studio");
-                setIsZoomedIn(false);
-              }}
-              className={`cursor-pointer flex items-center gap-2 rounded-xl px-4 py-2.5 text-[11px] font-mono font-bold uppercase tracking-wider transition-all ${
-                envMode === "cad-studio"
-                  ? "bg-[#ffb35c] text-black shadow-[0_0_20px_rgba(255,179,92,0.4)] font-extrabold scale-105"
-                  : "text-slate-400 hover:text-white"
-              }`}
-            >
-              <Wrench size={13} />
-              <span>3D CAD Studio (360°)</span>
-            </button>
+          {/* Right Controls: Vehicle Switcher & Environment Toggle */}
+          <div className="flex flex-wrap items-center gap-2">
+            {/* Vehicle Selector Pills */}
+            <div className="flex flex-wrap items-center gap-1 rounded-2xl border border-white/10 bg-[#060a0f] p-1 shadow-xl">
+              {vehiclesMaster.map((veh, idx) => {
+                const isSelected = activeVehicleIdx === idx;
+                return (
+                  <button
+                    key={veh.id}
+                    type="button"
+                    onClick={() => handleSelectVehicle(idx)}
+                    className={`cursor-pointer rounded-xl px-3 py-1.5 text-[10px] font-mono font-bold uppercase tracking-wider transition-all ${
+                      isSelected
+                        ? "bg-[#ffb35c] text-black shadow-[0_0_15px_rgba(255,179,92,0.45)] font-extrabold"
+                        : "border border-white/5 bg-white/5 text-slate-400 hover:text-white hover:bg-white/10"
+                    }`}
+                  >
+                    {veh.name.split(" ")[0]} {veh.name.split(" ")[1]}
+                  </button>
+                );
+              })}
+            </div>
 
-            <button
-              type="button"
-              onClick={() => {
-                setEnvMode("live-mine");
-                setIsZoomedIn(false);
-              }}
-              className={`cursor-pointer flex items-center gap-2 rounded-xl px-4 py-2.5 text-[11px] font-mono font-bold uppercase tracking-wider transition-all ${
-                envMode === "live-mine"
-                  ? "bg-[#6ce1ff] text-black shadow-[0_0_20px_rgba(108,225,255,0.4)] font-extrabold scale-105"
-                  : "text-slate-400 hover:text-white"
-              }`}
-            >
-              <Mountain size={13} />
-              <span>Live Mine Deployment</span>
-            </button>
-          </div>
-        </div>
+            {/* Master View Mode Toggle (3D CAD Studio vs Live Mine Deployment) */}
+            <div className="inline-flex items-center gap-1 rounded-2xl border border-white/15 bg-[#060a0f] p-1 shadow-xl">
+              <button
+                type="button"
+                onClick={() => {
+                  setEnvMode("cad-studio");
+                  setIsZoomedIn(false);
+                }}
+                className={`cursor-pointer flex items-center gap-1.5 rounded-xl px-3 py-1.5 text-[10px] font-mono font-bold uppercase tracking-wider transition-all ${
+                  envMode === "cad-studio"
+                    ? "bg-[#ffb35c] text-black shadow-md font-extrabold"
+                    : "text-slate-400 hover:text-white"
+                }`}
+              >
+                <Wrench size={12} />
+                <span>3D Studio</span>
+              </button>
 
-        {/* Clean Vehicle Switcher Bar */}
-        <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
-          <div className="flex flex-wrap items-center gap-2 rounded-2xl border border-white/10 bg-[#060a0f] p-1.5 shadow-xl">
-            {vehiclesMaster.map((veh, idx) => {
-              const isSelected = activeVehicleIdx === idx;
-              return (
-                <button
-                  key={veh.id}
-                  type="button"
-                  onClick={() => handleSelectVehicle(idx)}
-                  className={`cursor-pointer rounded-xl px-4 py-2 text-[11px] font-mono font-bold uppercase tracking-wider transition-all ${
-                    isSelected
-                      ? "bg-[#ffb35c] text-black shadow-[0_0_20px_rgba(255,179,92,0.45)] scale-105 font-extrabold"
-                      : "border border-white/10 bg-white/5 text-slate-400 hover:text-white hover:bg-white/10"
-                  }`}
-                >
-                  {veh.name.split(" ")[0]} {veh.name.split(" ")[1]}
-                </button>
-              );
-            })}
+              <button
+                type="button"
+                onClick={() => {
+                  setEnvMode("live-mine");
+                  setIsZoomedIn(false);
+                }}
+                className={`cursor-pointer flex items-center gap-1.5 rounded-xl px-3 py-1.5 text-[10px] font-mono font-bold uppercase tracking-wider transition-all ${
+                  envMode === "live-mine"
+                    ? "bg-[#6ce1ff] text-black shadow-md font-extrabold"
+                    : "text-slate-400 hover:text-white"
+                }`}
+              >
+                <Mountain size={12} />
+                <span>Live Mine</span>
+              </button>
+            </div>
           </div>
         </div>
 
         {/* Main Viewport & Telemetry Panel Grid */}
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">
+        <div className="grid grid-cols-1 gap-5 lg:grid-cols-12">
           
           {/* Main Visual Viewport (8 Columns) */}
           <div
@@ -640,7 +641,7 @@ export default function Interactive3DExplorer() {
             onMouseMove={handleMouseMove}
             onMouseUp={handleMouseUp}
             onMouseLeave={handleMouseUp}
-            className={`group relative h-[560px] overflow-hidden rounded-[32px] border border-white/15 bg-[#030508] shadow-[0_30px_100px_rgba(0,0,0,0.85)] lg:col-span-8 ${
+            className={`group relative h-[480px] lg:h-[510px] overflow-hidden rounded-[28px] border border-white/15 bg-[#030508] shadow-[0_25px_80px_rgba(0,0,0,0.85)] lg:col-span-8 ${
               envMode === "cad-studio" ? "cursor-grab active:cursor-grabbing" : ""
             }`}
           >
