@@ -28,7 +28,17 @@
   - `Exploded CAD`: Exploded component mechanical assembly breakdown.
 - **Live Mine Deployment Toggle**: Instant one-click transition from studio clean-room CAD to real-world active pit benches and subterranean tunnels.
 
-### 2. 🚛 Autonomous Fleet Dispatch & Scenario Simulator
+### 2. 🕹️ In-Cab Tele-Remote Cockpit HUD & Atmospheric Physics
+- **Virtual Tele-Operation Station**: Real-time 5G URLLC cockpit telemetry (8.8ms latency, 142 Mbps 4K 60FPS feed) with direct drive actuation.
+- **Day / Night / Weather Mode Switcher**:
+  - ☀️ **Clear Sun Day**: Full pit bench visibility with dynamic AR road guides.
+  - 🌙 **Deep Night**: 42,000-lumen stadium high beams, starry night sky, and neon instruments.
+  - 🌧️ **Heavy Rainstorm**: Windshield rain particle physics, animated wiper blade sweeping, and traction drop warnings.
+  - 🌪️ **Desert Dust Storm**: Reduced atmospheric visibility, blowing dust particles, and FLIR thermal IR contrast enhancement.
+- **Interactive In-Cab Controls**: Transmission Gear selector (`[P]`, `[R]`, `[N]`, `[D]`), Throttle & Service Brake pedals, interactive steering wheel dial, auxiliary wipers/high-beams, and hard Emergency E-Stop interlock.
+- **AR Windshield Overlay**: Artificial horizon / inclinometer ($\pm 18^\circ$ pitch/roll), ground speed digital cluster, and AR obstacle tracking bounding boxes.
+
+### 3. 🚛 Autonomous Fleet Dispatch & Scenario Simulator
 - **Live Open-Pit Tactical Map**: Real-time animated autonomous haul trucks navigating active haulage sectors from Pit Face Alpha to Crusher 01.
 - **Dynamic SCADA Feed**: Real-time velocity gauges, payload meters, engine RPM, GPS coordinates, and proximity safety halos.
 - **4 Emergency Scenario Triggers**:
@@ -37,7 +47,7 @@
   - 🔥 **Tire Thermal Overheat (>115°C)**: Limits maximum speed to 15 km/h and dispatches hauler to mobile cooling bay.
   - ✅ **Normal Production Dispatch**: Resumes optimal throughput routing at nominal speeds.
 
-### 3. 📊 Real-Time SCADA Telemetry & Industrial SCADA Dashboard
+### 4. 📊 Real-Time SCADA Telemetry & Industrial SCADA Dashboard
 - Real-time pit extraction metrics ($24.8\text{k}$ Tonnes / Shift).
 - Fleet autonomous availability rate ($98.4\%$).
 - Millisecond-level sensor synchronization with ISO 16/13 hydraulic quality, TPMS pressure, and RTK-GNSS positioning.

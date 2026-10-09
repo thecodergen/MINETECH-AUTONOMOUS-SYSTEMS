@@ -10,6 +10,7 @@ interface NavbarProps {
 const navItems = [
   { name: "Overview", href: "#experience" },
   { name: "Fleet 3D CAD", href: "#interactive-3d" },
+  { name: "Cockpit HUD", href: "#tele-remote-hud" },
   { name: "Journey", href: "#journey" },
   { name: "Digital Twin", href: "#digital-twin" },
   { name: "Dispatch Map", href: "#fleet-dispatch" },

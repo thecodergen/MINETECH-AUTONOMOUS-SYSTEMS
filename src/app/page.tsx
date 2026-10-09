@@ -5,6 +5,7 @@ import Navbar from "@/components/ui/Navbar";
 import RealTimeMiningBar from "@/components/ui/RealTimeMiningBar";
 import HeroSection from "@/components/sections/HeroSection";
 import Interactive3DExplorer from "@/components/sections/Interactive3DExplorer";
+import TeleRemoteCockpitHUD from "@/components/sections/TeleRemoteCockpitHUD";
 import MiningJourney from "@/components/sections/MiningJourney";
 import DigitalTwinSection from "@/components/sections/DigitalTwinSection";
 import FleetDispatchSimulator from "@/components/sections/FleetDispatchSimulator";
@@ -34,6 +35,7 @@ export default function Home() {
       <main className="relative z-10 overflow-hidden">
         <HeroSection onOpenDemo={() => setDemoOpen(true)} />
         <Interactive3DExplorer />
+        <TeleRemoteCockpitHUD />
         <MiningJourney />
         <DigitalTwinSection />
         <FleetDispatchSimulator />
