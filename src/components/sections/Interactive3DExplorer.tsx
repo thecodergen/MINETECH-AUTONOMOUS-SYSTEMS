@@ -192,9 +192,9 @@ const vehiclesMaster: VehicleData[] = [
       { degree: 180, label: "180° Rear Power & Counterweight", short: "REAR", src: "/images/excavator_360_rear.jpg" },
       { degree: 315, label: "315° Pit Bench Profile", short: "PROFILE", src: "/images/mining_excavator.jpg" },
     ],
-    xraySrc: "/images/hauler_xray_hologram.jpg",
-    thermalSrc: "/images/hauler_flir_thermal.jpg",
-    explodedSrc: "/images/hauler_exploded_cad.jpg",
+    xraySrc: "/images/excavator_pbr_studio.jpg",
+    thermalSrc: "/images/excavator_360_front.jpg",
+    explodedSrc: "/images/excavator_360_rear.jpg",
     fieldSpecs: [
       { label: "Bucket Payload", val: "95 Tonnes / Pass" },
       { label: "Cycle Time", val: "27.4 Seconds" },
@@ -298,9 +298,9 @@ const vehiclesMaster: VehicleData[] = [
       { degree: 180, label: "180° Rear Engine & Outriggers", short: "REAR", src: "/images/drill_360_rear.jpg" },
       { degree: 315, label: "315° Pit Bench Profile", short: "PROFILE", src: "/images/mining_drill_rig.jpg" },
     ],
-    xraySrc: "/images/hauler_xray_hologram.jpg",
-    thermalSrc: "/images/hauler_flir_thermal.jpg",
-    explodedSrc: "/images/hauler_exploded_cad.jpg",
+    xraySrc: "/images/drill_pbr_studio.jpg",
+    thermalSrc: "/images/drill_360_rear.jpg",
+    explodedSrc: "/images/mining_drill_rig.jpg",
     fieldSpecs: [
       { label: "Bit Diameter", val: "270 - 350 mm" },
       { label: "Drill Depth", val: "Up to 55 Meters" },
@@ -382,9 +382,9 @@ const vehiclesMaster: VehicleData[] = [
       { degree: 45, label: "45° Studio 3D Turntable", short: "FRONT-R", src: "/images/lhd_pbr_studio.jpg" },
       { degree: 315, label: "315° Sub-Drift Tunnel View", short: "TUNNEL", src: "/images/underground_tunnel.jpg" },
     ],
-    xraySrc: "/images/hauler_xray_hologram.jpg",
-    thermalSrc: "/images/hauler_flir_thermal.jpg",
-    explodedSrc: "/images/hauler_exploded_cad.jpg",
+    xraySrc: "/images/lhd_pbr_studio.jpg",
+    thermalSrc: "/images/underground_tunnel.jpg",
+    explodedSrc: "/images/lhd_pbr_studio.jpg",
     fieldSpecs: [
       { label: "Tramming Capacity", val: "18.0 Tonnes" },
       { label: "Tunnel Clearance", val: "2.4m Low-Profile" },
@@ -696,32 +696,48 @@ export default function Interactive3DExplorer() {
           >
             {/* The Image with Smooth Spring Zooming */}
             <div className="absolute inset-0 h-full w-full overflow-hidden">
-              <motion.div
-                key={`${currentVehicle.id}-${envMode}-${diagnosticMode}-${currentAngleIdx}-${activeHotspotKey}-${isZoomedIn}`}
-                initial={{ opacity: 0.9 }}
-                animate={{
-                  opacity: 1,
-                  scale: currentScale,
-                  transformOrigin: `${currentOriginX}% ${currentOriginY}%`,
-                }}
-                transition={{
-                  scale: { type: "spring", stiffness: 220, damping: 26 },
-                  opacity: { duration: 0.2 }
-                }}
-                className="relative h-full w-full pointer-events-none"
-              >
-                <Image
-                  src={activeImageSrc}
-                  alt={currentVehicle.name}
-                  fill
-                  priority
-                  sizes="(max-width: 1200px) 100vw, 65vw"
-                  className="object-cover object-center select-none"
-                />
+              {(() => {
+                let diagnosticFilter = "none";
+                if (envMode === "cad-studio" && currentVehicle.id !== "cat-797f") {
+                  if (diagnosticMode === "xray") {
+                    diagnosticFilter = "invert(0.9) hue-rotate(180deg) contrast(1.8) saturate(1.4)";
+                  } else if (diagnosticMode === "thermal") {
+                    diagnosticFilter = "hue-rotate(270deg) saturate(3.8) contrast(1.7)";
+                  } else if (diagnosticMode === "exploded") {
+                    diagnosticFilter = "contrast(2.2) brightness(1.15) hue-rotate(85deg)";
+                  }
+                }
 
-                {/* Lighting Vignette Overlays */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#04070a]/90 via-transparent to-[#04070b]/30" />
-              </motion.div>
+                return (
+                  <motion.div
+                    key={`${currentVehicle.id}-${envMode}-${diagnosticMode}-${currentAngleIdx}-${activeHotspotKey}-${isZoomedIn}`}
+                    initial={{ opacity: 0.9 }}
+                    animate={{
+                      opacity: 1,
+                      scale: currentScale,
+                      transformOrigin: `${currentOriginX}% ${currentOriginY}%`,
+                    }}
+                    transition={{
+                      scale: { type: "spring", stiffness: 220, damping: 26 },
+                      opacity: { duration: 0.2 }
+                    }}
+                    className="relative h-full w-full pointer-events-none"
+                  >
+                    <Image
+                      src={activeImageSrc}
+                      alt={currentVehicle.name}
+                      fill
+                      priority
+                      sizes="(max-width: 1200px) 100vw, 65vw"
+                      style={{ filter: diagnosticFilter }}
+                      className="object-cover object-center select-none"
+                    />
+
+                    {/* Lighting Vignette Overlays */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#04070a]/90 via-transparent to-[#04070b]/30" />
+                  </motion.div>
+                );
+              })()}
             </div>
 
             {/* Target Reticle Overlay When Zoomed In */}
