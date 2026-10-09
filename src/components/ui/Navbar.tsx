@@ -9,11 +9,11 @@ interface NavbarProps {
 
 const navItems = [
   { name: "Overview", href: "#experience" },
+  { name: "Dashboard", href: "#dashboard" },
   { name: "Fleet 3D CAD", href: "#interactive-3d" },
   { name: "Journey", href: "#journey" },
   { name: "Digital Twin", href: "#digital-twin" },
   { name: "Dispatch Map", href: "#fleet-dispatch" },
-  { name: "Dashboard", href: "#dashboard" },
   { name: "Safety & AI", href: "#safety" },
 ];
 
