@@ -33,11 +33,11 @@ export default function Home() {
       {/* Main Content Sections */}
       <main className="relative z-10 overflow-hidden">
         <HeroSection onOpenDemo={() => setDemoOpen(true)} />
+        <MiningDashboard />
         <Interactive3DExplorer />
         <MiningJourney />
         <DigitalTwinSection />
         <FleetDispatchSimulator />
-        <MiningDashboard />
         <AIIntelligence />
         <SafetySection />
         <TechnologySection />
