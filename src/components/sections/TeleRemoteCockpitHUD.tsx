@@ -206,10 +206,16 @@ export default function TeleRemoteCockpitHUD() {
   const pitchDeg = Math.round((speed > 40 ? 3.2 : 1.8) * 10) / 10;
   const rollDeg = Math.round((steeringAngle / 30) * 4.5 * 10) / 10;
 
-  // Background Scenery image by machine & mode
+  // Background Scenery photo by weather mode & machine
   let windshieldBg = "/images/hero_open_pit.jpg";
-  if (machineType === "excavator-996b") {
-    windshieldBg = "/images/mining_excavator.jpg";
+  if (weatherMode === "night") {
+    windshieldBg = "/images/mine_night.jpg";
+  } else if (weatherMode === "rain") {
+    windshieldBg = "/images/mine_rain.jpg";
+  } else if (weatherMode === "dust") {
+    windshieldBg = "/images/mine_dust.jpg";
+  } else {
+    windshieldBg = machineType === "excavator-996b" ? "/images/mining_excavator.jpg" : "/images/hero_open_pit.jpg";
   }
 
   return (
@@ -395,23 +401,15 @@ export default function TeleRemoteCockpitHUD() {
             
             {/* Scenery View Through Windshield with Weather Filters */}
             <motion.div
+              key={`${weatherMode}-${machineType}`}
+              initial={{ opacity: 0.8 }}
               animate={{
+                opacity: 1,
                 scale: isAccelerating ? 1.05 : isBraking ? 0.98 : 1.0,
                 x: steeringAngle * -1.8,
-                filter:
-                  weatherMode === "night"
-                    ? isFlirThermal
-                      ? "hue-rotate(280deg) saturate(2.2) contrast(1.4)"
-                      : "brightness(0.28) contrast(1.3) saturate(0.8)"
-                    : weatherMode === "dust"
-                    ? isFlirThermal
-                      ? "hue-rotate(280deg) saturate(2.2) contrast(1.4)"
-                      : "sepia(0.8) contrast(1.2) brightness(0.85) blur(1.5px)"
-                    : weatherMode === "rain"
-                    ? "brightness(0.7) contrast(1.1) saturate(0.9)"
-                    : isFlirThermal
-                    ? "hue-rotate(280deg) saturate(2.2) contrast(1.4)"
-                    : "brightness(1.0) contrast(1.05)"
+                filter: isFlirThermal
+                  ? "hue-rotate(280deg) saturate(2.2) contrast(1.4)"
+                  : "brightness(1.0) contrast(1.02)"
               }}
               transition={{ type: "spring", stiffness: 180, damping: 22 }}
               className="absolute inset-0 h-full w-full"
@@ -426,11 +424,9 @@ export default function TeleRemoteCockpitHUD() {
               />
 
               {/* Night Stadium Beams Light Cones */}
-              {weatherMode === "night" && (
+              {weatherMode === "night" && isHighBeams && (
                 <div
-                  className={`absolute inset-0 transition-opacity duration-500 ${
-                    isHighBeams ? "opacity-90" : "opacity-40"
-                  } bg-[radial-gradient(ellipse_at_50%_75%,_rgba(255,255,220,0.45)_0%,_rgba(255,240,180,0.15)_40%,_transparent_75%)]`}
+                  className="absolute inset-0 transition-opacity duration-500 opacity-70 bg-[radial-gradient(ellipse_at_50%_75%,_rgba(255,255,220,0.35)_0%,_rgba(255,240,180,0.1)_40%,_transparent_75%)]"
                 />
               )}
 
@@ -439,23 +435,6 @@ export default function TeleRemoteCockpitHUD() {
                 <div className="absolute inset-0 bg-gradient-to-t from-red-950/40 via-purple-950/20 to-cyan-950/40 mix-blend-color-dodge" />
               )}
             </motion.div>
-
-            {/* Weather Particle Canvas Layer (Rain drops / Dust) */}
-            <canvas ref={canvasRef} className="pointer-events-none absolute inset-0 z-10 h-full w-full" />
-
-            {/* Animated Windshield Wiper Blades */}
-            {isWiperActive && (
-              <div className="pointer-events-none absolute inset-0 z-15 overflow-hidden">
-                <motion.div
-                  animate={{ rotate: [-65, 65, -65] }}
-                  transition={{ duration: 1.4, repeat: Infinity, ease: "easeInOut" }}
-                  style={{ transformOrigin: "bottom center" }}
-                  className="absolute bottom-0 left-1/2 -ml-1 h-[75%] w-2 bg-gradient-to-t from-slate-900 via-slate-600 to-slate-400 shadow-2xl"
-                >
-                  <div className="h-full w-0.5 bg-slate-300 opacity-60" />
-                </motion.div>
-              </div>
-            )}
 
             {/* ========================================================= */}
             {/* AUGMENTED REALITY (AR) WINDSHIELD HEAD-UP DISPLAY (HUD)    */}
@@ -768,16 +747,11 @@ export default function TeleRemoteCockpitHUD() {
                   <button
                     type="button"
                     onClick={() => {
-                      setIsWiperActive((prev) => !prev);
                       triggerAudioBeep(500);
                     }}
-                    className={`cursor-pointer rounded-xl border p-2.5 text-[10px] font-mono font-bold uppercase transition-all ${
-                      isWiperActive
-                        ? "border-cyan-400 bg-cyan-950/60 text-cyan-300"
-                        : "border-white/10 bg-white/5 text-slate-400 hover:text-white"
-                    }`}
+                    className="cursor-pointer rounded-xl border border-white/10 bg-white/5 p-2.5 text-[10px] font-mono font-bold uppercase text-slate-300 hover:text-white hover:bg-white/10 transition-all"
                   >
-                    WIPERS: {isWiperActive ? "ACTIVE" : "OFF"}
+                    DEFROST: ACTIVE
                   </button>
 
                   <button
