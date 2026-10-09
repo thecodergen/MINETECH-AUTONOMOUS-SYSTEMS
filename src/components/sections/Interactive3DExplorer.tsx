@@ -628,56 +628,6 @@ export default function Interactive3DExplorer() {
               );
             })}
           </div>
-
-          {/* Diagnostic View Modes (Active only in 3D CAD Studio Mode) */}
-          {envMode === "cad-studio" && (
-            <div className="flex flex-wrap items-center gap-1.5 rounded-2xl border border-white/10 bg-[#070b10] p-1.5 shadow-xl">
-              <button
-                type="button"
-                onClick={() => setDiagnosticMode("360-turntable")}
-                className={`cursor-pointer flex items-center gap-1.5 rounded-xl px-3 py-1.5 text-[10px] font-mono font-bold uppercase tracking-wider transition-all ${
-                  diagnosticMode === "360-turntable"
-                    ? "bg-[#ffb35c] text-black shadow-md font-extrabold"
-                    : "text-slate-400 hover:text-white"
-                }`}
-              >
-                <RotateCw size={12} /> 360° Turntable
-              </button>
-              <button
-                type="button"
-                onClick={() => setDiagnosticMode("xray")}
-                className={`cursor-pointer flex items-center gap-1.5 rounded-xl px-3 py-1.5 text-[10px] font-mono font-bold uppercase tracking-wider transition-all ${
-                  diagnosticMode === "xray"
-                    ? "bg-[#6ce1ff] text-black shadow-md font-extrabold"
-                    : "text-slate-400 hover:text-white"
-                }`}
-              >
-                <Layers size={12} /> X-Ray Mesh
-              </button>
-              <button
-                type="button"
-                onClick={() => setDiagnosticMode("thermal")}
-                className={`cursor-pointer flex items-center gap-1.5 rounded-xl px-3 py-1.5 text-[10px] font-mono font-bold uppercase tracking-wider transition-all ${
-                  diagnosticMode === "thermal"
-                    ? "bg-gradient-to-r from-red-500 to-amber-400 text-black shadow-md font-extrabold"
-                    : "text-slate-400 hover:text-white"
-                }`}
-              >
-                <Flame size={12} /> FLIR Thermal
-              </button>
-              <button
-                type="button"
-                onClick={() => setDiagnosticMode("exploded")}
-                className={`cursor-pointer flex items-center gap-1.5 rounded-xl px-3 py-1.5 text-[10px] font-mono font-bold uppercase tracking-wider transition-all ${
-                  diagnosticMode === "exploded"
-                    ? "bg-emerald-400 text-black shadow-md font-extrabold"
-                    : "text-slate-400 hover:text-white"
-                }`}
-              >
-                <Maximize2 size={12} /> Exploded CAD
-              </button>
-            </div>
-          )}
         </div>
 
         {/* Main Viewport & Telemetry Panel Grid */}
