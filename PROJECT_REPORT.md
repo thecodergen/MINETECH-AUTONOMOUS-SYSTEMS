@@ -1,212 +1,131 @@
 # PROJECT REPORT: MINETECH AUTONOMOUS SYSTEMS
-## Next-Generation 3D Digital Twin & Autonomous Mining Intelligence Platform
+## Next-Generation 3D Digital Twin & Autonomous Mining SCADA Intelligence Platform
 
 ---
 
 ### Executive Metadata
 - **Project Title:** MineTech 3D Autonomous Mining & Digital Twin SCADA Platform
-- **Project Version:** 1.0.0 Production Release
+- **Project Version:** 2.4.0 Production Release
 - **Target Domain:** Industrial Mining, Autonomous Heavy Fleets, Geospatial Digital Twins, SCADA Telemetry
 - **Author/Developer:** MineTech Autonomous Engineering Team
 - **Date:** October 2026
 - **Repository Path:** `d:\IG THING\3d-mining`
+- **GitHub Repository:** [`https://github.com/thecodergen/MINETECH-AUTONOMOUS-SYSTEMS`](https://github.com/thecodergen/MINETECH-AUTONOMOUS-SYSTEMS)
 - **Application URL:** `http://localhost:3000`
 
 ---
 
 ## 1. Executive Summary
 
-The **MineTech Autonomous Systems** platform is a modern, high-performance web-based industrial intelligence system designed to revolutionize heavy mining operations. By bridging physical extraction environments (open-pit benches and subterranean tunnels) with a real-time **3D Digital Twin**, the platform enables mine operators, safety engineers, and fleet managers to monitor telemetry, predict equipment failures, automate haul truck routing, and achieve zero-harm safety standards.
+The **MineTech Autonomous Systems** platform is a high-performance web-based industrial intelligence and digital twin system engineered for ultra-heavy open-pit and subterranean mining operations. By bridging physical extraction environments with high-fidelity **3D Digital Twins**, real-time SCADA telemetry, tactical dispatch automation, and simulated fail-safe protocols, MineTech enables mine operators, safety engineers, and fleet executives to maximize extraction throughput while upholding zero-harm standards.
 
-Built on **Next.js 16 (Turbopack)**, **React 19**, **Three.js / React Three Fiber**, and **Tailwind CSS**, the platform provides responsive 3D visualization, dynamic sensor telemetry, and an interactive fleet ROI simulator.
+Built with **Next.js 16 (Turbopack)**, **React 19**, **Three.js**, and **Tailwind CSS**, the platform provides responsive 360° vehicle turntable inspection, dynamic tactical route dispatching, subterranean safety monitoring, and executive ROI simulation.
+
+```mermaid
+graph TD
+    subgraph Physical Extraction Zone
+        A1[CAT 797F Autonomous Haulers]
+        A2[996B Hydraulic Mining Excavators]
+        A3[PV-271 Rotary Blast Hole Drills]
+        A4[Subterranean LHD Underground Loaders]
+    end
+
+    subgraph IoT & Edge Sensor Layer
+        B1[128-Beam LiDAR Arrays]
+        B2[Dual RTK-GNSS Receivers]
+        B3[FLIR LWIR Thermal Imaging]
+        B4[CAN-bus & Hydraulic Pressure Transducers]
+    end
+
+    subgraph MineTech Digital Twin Engine
+        C1[360° PBR CAD Studio]
+        C2[Real-Time SCADA Telemetry Engine]
+        C3[Tactical Route Dispatch & Incident Simulator]
+        C4[Subterranean Safety & Environmental Guardian]
+    end
+
+    subgraph Operations Command UI
+        D1[Interactive 3D Subsystem Inspector]
+        D2[Tactical Geospatial Pit Map]
+        D3[Multi-Gas & Strata Seismic Monitors]
+        D4[Fleet Availability & Extraction KPIs]
+    end
+
+    Physical Extraction Zone --> IoT & Edge Sensor Layer
+    IoT & Edge Sensor Layer --> MineTech Digital Twin Engine
+    MineTech Digital Twin Engine --> Operations Command UI
+```
 
 ---
 
 ## 2. Problem Statement & Industry Challenges
 
-Modern industrial mining operations face critical challenges that impact profitability, human safety, and environmental compliance:
+Modern surface and underground mining operations face severe systemic risks that threaten operational continuity, human safety, and financial returns:
 
-```mermaid
-graph TD
-    A[Traditional Mining Bottlenecks] --> B[Unplanned Fleet Downtime]
-    A --> C[High Fatality & Collision Risk]
-    A --> D[Suboptimal Haul Dispatch & Queues]
-    A --> E[Siloed Geospatial & SCADA Data]
-
-    B --> F[Millions Lost per Unscheduled Repair]
-    C --> G[Hazardous Human Presence in Heavy Zones]
-    D --> H[Excess Fuel Burn & High Carbon Footprint]
-    E --> I[Delayed Decision-Making by Operators]
-```
-
-### Key Industry Vulnerabilities:
-1. **Unplanned Machine Breakdown:** Heavy haulers (e.g., CAT 797F) incur massive costs when transmissions, engines, or hydraulic cylinders fail without warning.
-2. **Subterranean Safety Hazards:** Deep drifts (-1,200m) suffer from hazardous gas accumulation, ventilation lapses, and zero direct GPS reception.
-3. **Dispatch Inefficiencies:** Static truck dispatching creates bottlenecks at crushers and shovels, driving up fuel consumption and idle times.
-4. **Data Fragmentation:** Legacy mines rely on disparate SCADA dashboards, PDF drill logs, and disconnected GPS feeds.
+1. **Catastrophic Unplanned Downtime:** A single unscheduled failure in a 6,000 HP twin-diesel power unit or high-pressure hydraulic hoist ram costs mining operations upwards of $120,000/hour in lost haul cycles.
+2. **Subterranean Environmental Hazards:** Deep underground drifts (-1,200m) lack direct GNSS connectivity and face rapid accumulations of combustible methane, nitrogen dioxide, and toxic particulate matter.
+3. **Dispatch Bottlenecks & Haul Queue Fuel Waste:** Static truck assignment models lead to truck queuing at primary crushers and excavator benches, driving excessive diesel consumption and tire wear.
+4. **Data Fragmentation:** Legacy mines rely on disparate SCADA dashboards, PDF drill logs, and disconnected GPS feeds that hinder real-time decision-making.
 
 ---
 
-## 3. The MineTech Solution
+## 3. Core System Modules & Capabilities
 
-MineTech provides a unified operational command center that resolves these challenges through five core pillars:
+### 3.1 360° Interactive Vehicle Inspector & Subsystem Telemetry
+- **Interactive Multi-Angle Turntable:** Drag-to-rotate 360° inspection across high-fidelity studio renders with smooth inertial dampening and automated continuous rotation mode.
+- **Precision Subsystem Zooming:** Click-to-focus spring-animated camera with HUD target reticle locking directly into mission-critical subsystems:
+  - **CAT 797F:** C32 Quad-Turbo Engine (4,000 HP), 128-Beam LiDAR/GNSS Guidance Mast, 3-Stage Hoist Hydraulics, 59/80R63 Titan Tires.
+  - **996B Excavator:** 55m³ Cast Steel Rock Shovel (95T/pass), Twin Boom Hoist Cylinders (340 Bar), Cummins QSK60 Dual Powerdeck (6,000 HP), Heavy Crawler Tracks.
+  - **PV-271 Rotary Drill:** 18.3m Heavy Lattice Mast, High-Torque Rotary Drive (14,200 Nm), 3,800 CFM Air Compressor, Hydraulic Outrigger Jacks.
+  - **Subterranean LHD:** Low-Profile Rock Scoop, 380 kN Breakout Lift Rams, 340 kWh Modular LFP Battery Pack, $\pm42.5^\circ$ Articulation Hitch.
+- **Live Mine Environment Switcher:** Instant one-click transition between Clean-Room CAD Studio and active extraction sectors (Open-Pit Bench Alpha, Deep Subterranean Drift Level 14).
 
-```mermaid
-flowchart LR
-    subgraph Data Layer
-        S1[LiDAR Point Clouds]
-        S2[RTK-GNSS Satellites]
-        S3[IoT Gas & Strain Sensors]
-        S4[CAN-bus Engine Telemetry]
-    end
+### 3.2 Tactical Fleet Dispatch & Emergency Scenario Simulator
+- **Live Geospatial Vector Map:** Real-time animated autonomous haul truck navigation between active blast faces, primary crushers, waste dumps, and mobile cooling bays.
+- **Interactive Emergency Scenario Triggers:**
+  - ⚠️ **Rockfall Hazard Detected:** Instantly halts autonomous trucks in Sector 4, reroutes oncoming traffic via Bypass Beta, and issues audible and visual SCADA alarms.
+  - 🛑 **Sub-Surface Methane Gas Surge:** Halts drill operations, starts high-volume auxiliary ventilation (650 m³/s), and seals blast drifts.
+  - 🔥 **Tire Thermal Overheat (>115°C):** Automatically caps hauler velocity to 15 km/h and routes affected vehicles to mobile water cooling stations.
+  - ✅ **System Restore:** Resumes nominal autonomous flow at 45 km/h.
 
-    subgraph MineTech Core Engine
-        Engine[Edge Telemetry Ingestion & SCADA Sync]
-        AI[Neural Dynamic Dispatch & Predictive Maintenance]
-        DT[3D Digital Twin Geospatial Engine]
-    end
+### 3.3 Subterranean Safety & Environmental Guardian
+- **Live Environmental Sensors:** Subterranean air purity (99.4%), temperature gradient (24.8°C), personnel proximity radar (Zero Hazard), and strata seismic stability (0.01 mm/s).
+- **Automated Compliance Tracking:** 100% haul road clearance, 98% ventilation airflow, 99% geofencing lock, and 100% emergency beacon link.
 
-    subgraph Presentation & Control
-        UI1[Real-Time SCADA Ticker]
-        UI2[Interactive 3D Machine Hotspots]
-        UI3[Geospatial Digital Twin Mesh]
-        UI4[Executive ROI & Capacity Simulator]
-    end
-
-    Data Layer --> MineTech Core Engine
-    MineTech Core Engine --> Presentation & Control
-```
+### 3.4 Neural Infrastructure & Predictive Maintenance AI
+- **Predictive Sensor Models:** 120-hour advance warning before hydraulic pump cavitation or cylinder seal degradation.
+- **Yield Optimization:** Hyperspectral imaging synchronization with primary crusher feed rates for a 0.4% ore recovery lift.
 
 ---
 
-## 4. System Architecture & Technical Stack
+## 4. Heavy Fleet Specifications & Diagnostic Profile
 
-### 4.1 Technology Stack
+| Machine Model | Class | Operating Capacity | Monitored Operating Temperatures | Key Technical Specifications |
+| :--- | :--- | :--- | :--- | :--- |
+| **CAT 797F** | Ultra-Class Haul Truck | 360 Tonnes (400 Tons) | Engine: $245^\circ\text{C}$ · Hoist: $114^\circ\text{C}$ · Tires: $68^\circ\text{C}$ | C32 Quad-Turbo V16 (4,000 HP), 128-Beam LiDAR, 3-Stage Hoist Rams |
+| **996B Shovel** | Hydraulic Mining Excavator | 55m³ Heavy Bucket (95T) | Cummins QSK60: $245^\circ\text{C}$ · Rams: $114^\circ\text{C}$ | Twin Cummins QSK60 Units (6,000 HP), 340 Bar Hoist Rams, 1600mm Shoes |
+| **PV-271 Drill** | Rotary Blast Hole Rig | 350mm Hole Diameter | Compressor: $242^\circ\text{C}$ · Rotary: $114^\circ\text{C}$ | 18.3m Lattice Mast, 14,200 Nm Rotary Drive, 3,800 CFM Compressor |
+| **Subterranean LHD** | Low-Profile Underground Loader | 18.0 Tonnes Scoop | Battery/Inverter: $242^\circ\text{C}$ · Rams: $114^\circ\text{C}$ | 340 kWh LFP Battery Pack, 380 kN Breakout Rams, $\pm42.5^\circ$ Articulated Hitch |
 
-| Layer | Technologies Used | Purpose |
+---
+
+## 5. Technology Stack & Software Architecture
+
+| Architecture Tier | Technology | Key Role in Platform |
 | :--- | :--- | :--- |
-| **Frontend Framework** | Next.js 16 (App Router, Turbopack) | Server-side rendering, optimized client bundling, fast routing |
-| **UI Library** | React 19, TypeScript | Strict type safety, component modularity, hooks state |
-| **3D & Visual Graphics** | Three.js, `@react-three/fiber`, `@react-three/drei`, GSAP | 3D rendering, interactive camera controls, canvas management |
-| **Animations & FX** | Framer Motion | Smooth state transitions, interactive modal animations, pulse telemetry |
-| **Styling & Design System** | Tailwind CSS (v4), Vanilla CSS | Dark industrial aesthetic, glassmorphism, glowing telemetry badges |
-| **Icons & Assets** | Lucide React, High-Res Industrial Datasets | Modern vector iconography, telemetry symbols, 3D render assets |
-
-### 4.2 Application Directory Structure
-
-```
-3d-mining/
-├── public/
-│   └── images/                     # 3D assets, open-pit renders, hauler models
-├── src/
-│   ├── app/
-│   │   ├── layout.tsx              # Root HTML wrapper with fonts & metadata
-│   │   ├── page.tsx                # Master landing view integrating all sections
-│   │   └── globals.css             # Tailwind imports & custom glass styling
-│   ├── components/
-│   │   ├── scene/
-│   │   │   └── MiningScene.tsx     # Dynamic 3D viewport with mouse parallax & viewports
-│   │   ├── sections/
-│   │   │   ├── HeroSection.tsx     # High-impact title, stats & 3D viewport wrapper
-│   │   │   ├── MiningJourney.tsx   # Surface to Subterranean 3-phase journey
-│   │   │   ├── SmartHauler.tsx     # Interactive CAT 797F hotspot diagnostic tool
-│   │   │   ├── DigitalTwinSection.tsx # Split comparison between Physical Pit & AI Mesh
-│   │   │   ├── MiningDashboard.tsx # Live SCADA gauges & sector throughput monitors
-│   │   │   ├── AIIntelligence.tsx  # Neural dispatch & edge processing breakdowns
-│   │   │   ├── SafetySection.tsx   # Zero-Harm collision avoidance & radar protocols
-│   │   │   ├── TechnologySection.tsx # Architectural stack & telemetry specifications
-│   │   │   ├── ExternalEcosystem.tsx# Integration with satellite, ERP, and drone fleets
-│   │   │   └── FinalCTA.tsx        # Call-to-action with interactive launch triggers
-│   │   └── ui/
-│   │       ├── Navbar.tsx          # Sticky navigation with telemetry indicator & demo CTA
-│   │       ├── RealTimeMiningBar.tsx# Live micro-ticker for global mine telemetry
-│   │       └── DemoModal.tsx       # Fleet ROI simulator & interactive lead configurator
-└── package.json                    # Project dependencies & Turbopack dev scripts
-```
+| **Core Framework** | Next.js 16.4.0 (Turbopack) | Server-side rendering, fast routing, optimized static builds |
+| **Frontend UI** | React 19, TypeScript 5.0 | Component state isolation, strict type safety |
+| **Styling & Design** | Tailwind CSS v4, Vanilla CSS Tokens | Glassmorphism, dark industrial theme, SCADA glows |
+| **Motion & Animation** | Framer Motion 12.0 | Spring physics, camera zooms, animated telemetry gauges |
+| **3D Rendering** | Three.js, Canvas WebGL | Interactive 3D scene rendering, viewport controls |
+| **Iconography** | Lucide React | Modern industrial iconography & diagnostic badges |
+| **Image Processing** | Pillow (PIL), NumPy | Multi-pass 2K diagnostic rendering pipeline |
 
 ---
 
-## 5. Detailed Feature & Module Breakdown
+## 6. Verification & Quality Assurance
 
-### 5.1 Real-Time Telemetry Bar (`RealTimeMiningBar.tsx`)
-- Continuous ticker showcasing live metrics:
-  - **Extraction Efficiency:** 94.2%
-  - **Autonomous Haulers Active:** 48 / 48 Units
-  - **Subterranean Air Index:** 99.4% (Oxygen & Low Particulate)
-  - **Global SCADA Fleet Uptime:** 99.8%
-
-### 5.2 3D Parallax Viewport (`MiningScene.tsx`)
-- Supports **interactive mouse parallax** (`onMouseMove`) creating a 3D depth illusion.
-- Offers 4 switchable camera viewpoints:
-  1. **Open-Pit Benches:** Surface terraced extraction (-480m depth).
-  2. **Ultra-Class Hauler:** CAT 797F in transit at Sector 4 Ramp.
-  3. **Digital Twin Mesh:** 4.8M pts/sec LiDAR point cloud.
-  4. **Deep Tunnel Drift:** Underground sub-surface Level 14 crosscut.
-
-### 5.3 Smart Hauler Diagnostic Inspector (`SmartHauler.tsx`)
-- Allows operators to click interactive sensor hotspots on heavy machinery:
-  - **Engine Hotspot:** C32 ACERT Quad-Turbo Powertrain (4,000 HP, 88°C thermal status, 0.14 mm/s RMS vibration).
-  - **LiDAR Hotspot:** Dual 128-beam solid-state LiDAR with RTK-GNSS (±1.8cm precision, <40ms response).
-  - **Tire Telemetry:** 59/80R63 Titan radial tires with live TPMS pressure (105 PSI) and compound heat.
-  - **Hydraulic Hoist:** 24.5-second dump cycle at 24.2 MPa pressure.
-
-### 5.4 Digital Twin AI vs. Physical Pit Comparison (`DigitalTwinSection.tsx`)
-- Toggle switch comparing raw visual pit photography with a digitized AI point-cloud mesh.
-- Visualizes real-time geological stratum, ore grade heatmaps, and AI-predicted haul routes.
-
-### 5.5 Live SCADA Telemetry Dashboard (`MiningDashboard.tsx`)
-- Simulates dynamic real-time SCADA feeds updating every 3 seconds:
-  - Extraction throughput per hour.
-  - Fuel recovery ratios and battery regeneration curves.
-  - Zero-Harm Safety Index (99.98%).
-  - Sector throughput for North Pit, South Stope, and Primary Jaw Crusher.
-
-### 5.6 Interactive Fleet ROI Simulator (`DemoModal.tsx`)
-- Dynamic slider and selector module calculating:
-  - **Daily Tonnage:** $\text{Fleet Size} \times \text{Mine Type Factor}$ (up to 1,128,000 Tonnes/day).
-  - **Estimated Fuel Savings:** Up to \$1.7M+ annually via autonomous route smoothing.
-  - **Carbon Offset:** Up to 4,600+ Tons CO₂ equivalent reduction.
-
----
-
-## 6. Key Performance Metrics & Industrial Impact
-
-```mermaid
-pie title Autonomous Fleet Operational Gains
-    "Fuel Consumption Reduction" : 22
-    "Equipment Lifespan Extension" : 35
-    "Dispatch Route Optimization" : 25
-    "Unscheduled Downtime Prevention" : 18
-```
-
-| Metric | Traditional Baseline | MineTech Platform | Improvement |
-| :--- | :--- | :--- | :--- |
-| **Fleet Utilization** | 78.4% | **96.4%** | **+18.0%** |
-| **Unplanned Downtime** | 12.5 hrs/week/truck | **< 3.2 hrs/week/truck** | **-74.4%** |
-| **Haul Cycle Time** | 42.6 mins | **34.8 mins** | **-18.3%** |
-| **Collision Incidents** | Industry Average (Risk) | **0.00 (Zero-Harm)** | **100% Avoidance** |
-| **Carbon Intensity** | Baseline High | **-22.6% CO₂/Tonne** | **Significant ESG Gain** |
-
----
-
-## 7. Quality Assurance, Performance & UX
-
-1. **Turbopack Build Optimization:** Hot-reloads in `<500ms`, ensuring zero frame drops on client devices.
-2. **Accessible High-Contrast UI:** Industrial dark palette (`#040608`) paired with high-visibility amber (`#ffb35c`) and electric cyan (`#6ce1ff`).
-3. **Responsive Multi-Viewport Layout:** Fully adaptive across desktop industrial multi-monitors, ruggedized tablets, and mobile devices.
-4. **Resilient Mock Telemetry:** Built-in auto-fluctuation simulating active WebSocket and SCADA node feeds.
-
----
-
-## 8. Future Roadmap & Enhancement Horizons
-
-- [ ] **Real Drone LiDAR Integration:** Direct ingestion of LAS/LAZ point cloud drone scan files.
-- [ ] **Live WebSocket SCADA Connector:** Native OPC-UA and MQTT connectors for Caterpillar MineStar and Komatsu FrontRunner.
-- [ ] **VR/AR Spatial Headset Mode:** WebXR support for Apple Vision Pro and Meta Quest 3 remote tele-operation.
-- [ ] **Automated Geological AI Core Logging:** Computer vision core sample analysis for instantaneous grade classification.
-
----
-
-## 9. Conclusion
-
-The **MineTech Autonomous Systems** platform sets a new benchmark in industrial 3D digital twin engineering. By coupling real-time telemetry with intuitive visual spatial models, it transforms complex multi-million-dollar mining operations into an optimized, predictive, and zero-harm automated ecosystem.
+1. **Build Integrity:** Complete Next.js production build passing with 0 errors (`next build`).
+2. **Anchor Navigation:** All header navigation links (`#experience`, `#interactive-3d`, `#journey`, `#digital-twin`, `#fleet-dispatch`, `#dashboard`, `#safety`, `#ai`) verified with smooth scrolling.
+3. **Asset Resolution:** All 360° and diagnostic renders validated at crisp 2K (1920x1080) resolution with authentic False-Color Ironbow palettes and leader line typography.
+4. **Version Control:** Repository synchronized and pushed to [`thecodergen/MINETECH-AUTONOMOUS-SYSTEMS`](https://github.com/thecodergen/MINETECH-AUTONOMOUS-SYSTEMS) on `main`.
